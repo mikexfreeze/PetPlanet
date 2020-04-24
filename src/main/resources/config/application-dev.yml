@@ -37,9 +37,9 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/PetPlanet
-    username: PetPlanet
-    password:
+    url: jdbc:postgresql://duandiwang.com:5432/pet_planet
+    username: postgres
+    password: x1986119
     hikari:
       poolName: Hikari
       auto-commit: false
