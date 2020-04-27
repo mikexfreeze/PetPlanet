@@ -10,12 +10,8 @@ import { activateAction, reset } from './activate.reducer';
 const successAlert = (
   <Alert color="success">
     <Translate contentKey="activate.messages.success">
-      <strong>Your user account has been activated.</strong> Please
+      <strong>您的账户已经激活，请回到 app 登录</strong>
     </Translate>
-    <Link to="/login" className="alert-link">
-      <Translate contentKey="global.messages.info.authenticated.link">sign in</Translate>
-    </Link>
-    .
   </Alert>
 );
 
@@ -43,7 +39,7 @@ export const ActivatePage = (props: IActivateProps) => {
       <Row className="justify-content-center">
         <Col md="8">
           <h1>
-            <Translate contentKey="activate.title">Activation</Translate>
+            <Translate contentKey="activate.title">激活成功</Translate>
           </h1>
           {props.activationSuccess ? successAlert : undefined}
           {props.activationFailure ? failureAlert : undefined}
