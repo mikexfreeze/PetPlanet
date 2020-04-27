@@ -144,7 +144,7 @@ jhipster:
   #     allow-credentials: true
   #     max-age: 1800
   mail:
-    from: PetPlanet@localhost
+    from: 408026512@qq.com
   swagger:
     default-include-pattern: /api/.*
     title: PetPlanet API
