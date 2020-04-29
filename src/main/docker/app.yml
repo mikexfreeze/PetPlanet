@@ -1,7 +1,7 @@
 version: '2'
 services:
   petplanet-app:
-    image: mikexfreeze/petplanet:0.0.1
+    image: mikexfreeze/petplanet:latest
     environment:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=prod,swagger
