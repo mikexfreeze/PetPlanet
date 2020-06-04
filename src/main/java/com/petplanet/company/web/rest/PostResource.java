@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -98,7 +99,7 @@ public class PostResource {
         log.debug("REST request to get a page of Posts");
         Page<Post> page;
         if (eagerload) {
-            page = postRepository.findAllWithEagerRelationships(pageable);
+            page = new PageImpl<>(postRepository.findAllWithEagerRelationships());
         } else {
             page = postRepository.findAll(pageable);
         }
