@@ -39,6 +39,9 @@ export const Image = (props: IImageProps) => {
                 <th>
                   <Translate contentKey="petPlanetApp.image.image">Image</Translate>
                 </th>
+                <th>
+                  <Translate contentKey="petPlanetApp.image.post">Post</Translate>
+                </th>
                 <th />
               </tr>
             </thead>
@@ -63,6 +66,7 @@ export const Image = (props: IImageProps) => {
                       </div>
                     ) : null}
                   </td>
+                  <td>{image.post ? <Link to={`post/${image.post.id}`}>{image.post.id}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${image.id}`} color="info" size="sm">

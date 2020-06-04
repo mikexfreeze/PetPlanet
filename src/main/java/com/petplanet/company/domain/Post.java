@@ -38,13 +38,13 @@ public class Post implements Serializable {
     @Column(name = "created")
     private LocalDate created;
 
-    @ManyToOne
-    @JsonIgnoreProperties("posts")
-    private User author;
+    @OneToMany(mappedBy = "post")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Image> images = new HashSet<>();
 
     @ManyToOne
     @JsonIgnoreProperties("posts")
-    private Image image;
+    private User author;
 
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -101,6 +101,31 @@ public class Post implements Serializable {
         this.created = created;
     }
 
+    public Set<Image> getImages() {
+        return images;
+    }
+
+    public Post images(Set<Image> images) {
+        this.images = images;
+        return this;
+    }
+
+    public Post addImage(Image image) {
+        this.images.add(image);
+        image.setPost(this);
+        return this;
+    }
+
+    public Post removeImage(Image image) {
+        this.images.remove(image);
+        image.setPost(null);
+        return this;
+    }
+
+    public void setImages(Set<Image> images) {
+        this.images = images;
+    }
+
     public User getAuthor() {
         return author;
     }
@@ -112,19 +137,6 @@ public class Post implements Serializable {
 
     public void setAuthor(User user) {
         this.author = user;
-    }
-
-    public Image getImage() {
-        return image;
-    }
-
-    public Post image(Image image) {
-        this.image = image;
-        return this;
-    }
-
-    public void setImage(Image image) {
-        this.image = image;
     }
 
     public Set<Tag> getTags() {

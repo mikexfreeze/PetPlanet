@@ -42,6 +42,10 @@ export const ImageDetail = (props: IImageDetailProps) => {
               </div>
             ) : null}
           </dd>
+          <dt>
+            <Translate contentKey="petPlanetApp.image.post">Post</Translate>
+          </dt>
+          <dd>{imageEntity.post ? imageEntity.post.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/image" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

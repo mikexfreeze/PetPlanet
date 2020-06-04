@@ -50,10 +50,6 @@ export const PostDetail = (props: IPostDetailProps) => {
           </dt>
           <dd>{postEntity.author ? postEntity.author.login : ''}</dd>
           <dt>
-            <Translate contentKey="petPlanetApp.post.image">Image</Translate>
-          </dt>
-          <dd>{postEntity.image ? postEntity.image.image : ''}</dd>
-          <dt>
             <Translate contentKey="petPlanetApp.post.tag">Tag</Translate>
           </dt>
           <dd>

@@ -9,8 +9,6 @@ import { IRootState } from 'app/shared/reducers';
 
 import { IUser } from 'app/shared/model/user.model';
 import { getUsers } from 'app/modules/administration/user-management/user-management.reducer';
-import { IImage } from 'app/shared/model/image.model';
-import { getEntities as getImages } from 'app/entities/image/image.reducer';
 import { ITag } from 'app/shared/model/tag.model';
 import { getEntities as getTags } from 'app/entities/tag/tag.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './post.reducer';
@@ -23,10 +21,9 @@ export interface IPostUpdateProps extends StateProps, DispatchProps, RouteCompon
 export const PostUpdate = (props: IPostUpdateProps) => {
   const [idstag, setIdstag] = useState([]);
   const [authorId, setAuthorId] = useState('0');
-  const [imageId, setImageId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
-  const { postEntity, users, images, tags, loading, updating } = props;
+  const { postEntity, users, tags, loading, updating } = props;
 
   const handleClose = () => {
     props.history.push('/post' + props.location.search);
@@ -40,7 +37,6 @@ export const PostUpdate = (props: IPostUpdateProps) => {
     }
 
     props.getUsers();
-    props.getImages();
     props.getTags();
   }, []);
 
@@ -131,21 +127,6 @@ export const PostUpdate = (props: IPostUpdateProps) => {
                 </AvInput>
               </AvGroup>
               <AvGroup>
-                <Label for="post-image">
-                  <Translate contentKey="petPlanetApp.post.image">Image</Translate>
-                </Label>
-                <AvInput id="post-image" type="select" className="form-control" name="image.id">
-                  <option value="" key="0" />
-                  {images
-                    ? images.map(otherEntity => (
-                        <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.image}
-                        </option>
-                      ))
-                    : null}
-                </AvInput>
-              </AvGroup>
-              <AvGroup>
                 <Label for="post-tag">
                   <Translate contentKey="petPlanetApp.post.tag">Tag</Translate>
                 </Label>
@@ -190,7 +171,6 @@ export const PostUpdate = (props: IPostUpdateProps) => {
 
 const mapStateToProps = (storeState: IRootState) => ({
   users: storeState.userManagement.users,
-  images: storeState.image.entities,
   tags: storeState.tag.entities,
   postEntity: storeState.post.entity,
   loading: storeState.post.loading,
@@ -200,7 +180,6 @@ const mapStateToProps = (storeState: IRootState) => ({
 
 const mapDispatchToProps = {
   getUsers,
-  getImages,
   getTags,
   getEntity,
   updateEntity,

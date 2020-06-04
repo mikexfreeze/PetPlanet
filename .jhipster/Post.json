@@ -20,18 +20,17 @@
     ],
     "relationships": [
         {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "image",
+            "otherEntityRelationshipName": "post",
+            "relationshipName": "image"
+        },
+        {
             "relationshipType": "many-to-one",
             "otherEntityName": "user",
             "otherEntityRelationshipName": "post",
             "relationshipName": "author",
             "otherEntityField": "login"
-        },
-        {
-            "relationshipType": "many-to-one",
-            "otherEntityName": "image",
-            "otherEntityRelationshipName": "post",
-            "relationshipName": "image",
-            "otherEntityField": "image"
         },
         {
             "relationshipType": "many-to-many",

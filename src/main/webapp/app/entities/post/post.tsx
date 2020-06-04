@@ -76,9 +76,6 @@ export const Post = (props: IPostProps) => {
                 <th>
                   <Translate contentKey="petPlanetApp.post.author">Author</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
-                <th>
-                  <Translate contentKey="petPlanetApp.post.image">Image</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
                 <th />
               </tr>
             </thead>
@@ -96,7 +93,6 @@ export const Post = (props: IPostProps) => {
                     <TextFormat type="date" value={post.created} format={APP_LOCAL_DATE_FORMAT} />
                   </td>
                   <td>{post.author ? post.author.login : ''}</td>
-                  <td>{post.image ? <Link to={`image/${post.image.id}`}>{post.image.image}</Link> : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`${match.url}/${post.id}`} color="info" size="sm">

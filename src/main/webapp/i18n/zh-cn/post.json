@@ -19,8 +19,8 @@
       "title": "Title",
       "content": "Content",
       "created": "Created",
-      "author": "Author",
       "image": "Image",
+      "author": "Author",
       "tag": "Tag"
     }
   }

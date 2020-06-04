@@ -1,5 +1,6 @@
 package com.petplanet.company.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -31,6 +32,10 @@ public class Image implements Serializable {
 
     @Column(name = "image_content_type", nullable = false)
     private String imageContentType;
+
+    @ManyToOne
+    @JsonIgnoreProperties("images")
+    private Post post;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -65,6 +70,19 @@ public class Image implements Serializable {
 
     public void setImageContentType(String imageContentType) {
         this.imageContentType = imageContentType;
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public Image post(Post post) {
+        this.post = post;
+        return this;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

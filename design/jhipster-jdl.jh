@@ -16,9 +16,12 @@ relationship ManyToMany {
     Post{tag(tag)} to Tag{post}
 }
 
+relationship OneToMany {
+    Post{image(image)} to Image{post}
+}
+
 relationship ManyToOne {
 	Post{author(login)} to User
-    Post{image(image)} to Image
 }
 
 paginate Post with pagination
