@@ -1,0 +1,26 @@
+entity Tag {
+	tag String required minlength(2)
+}
+
+entity Image {
+	image ImageBlob required
+}
+
+entity Post {
+	title String,
+	content String maxlength(2048)
+    created LocalDate
+}
+
+relationship ManyToMany {
+    Post{tag(tag)} to Tag{post}
+    Post{image(image)} to Image{post}
+}
+
+relationship ManyToOne {
+	Post{author(login)} to User
+}
+
+paginate Post with pagination
+
+paginate Tag with pagination

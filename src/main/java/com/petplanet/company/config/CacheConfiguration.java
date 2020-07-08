@@ -42,6 +42,13 @@ public class CacheConfiguration {
             createCache(cm, com.petplanet.company.domain.User.class.getName());
             createCache(cm, com.petplanet.company.domain.Authority.class.getName());
             createCache(cm, com.petplanet.company.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.petplanet.company.domain.Tag.class.getName());
+            createCache(cm, com.petplanet.company.domain.Tag.class.getName() + ".posts");
+            createCache(cm, com.petplanet.company.domain.Image.class.getName());
+            createCache(cm, com.petplanet.company.domain.Image.class.getName() + ".posts");
+            createCache(cm, com.petplanet.company.domain.Post.class.getName());
+            createCache(cm, com.petplanet.company.domain.Post.class.getName() + ".tags");
+            createCache(cm, com.petplanet.company.domain.Post.class.getName() + ".images");
             // jhipster-needle-ehcache-add-entry
         };
     }
