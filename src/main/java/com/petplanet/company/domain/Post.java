@@ -49,7 +49,7 @@ public class Post implements Serializable {
                inverseJoinColumns = @JoinColumn(name = "tag_id", referencedColumnName = "id"))
     private Set<Tag> tags = new HashSet<>();
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JoinTable(name = "post_image",
                joinColumns = @JoinColumn(name = "post_id", referencedColumnName = "id"),
